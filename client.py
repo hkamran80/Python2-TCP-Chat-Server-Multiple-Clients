@@ -35,7 +35,7 @@ def initialization(client_socket, user_nickname):
 
 
 def prompt():
-    sys.stdout.write('<You> ')
+    sys.stdout.write('<' + nickName + '> ')
     sys.stdout.flush()
 
 
