@@ -6,6 +6,7 @@ import sys
 import checkArgumentInput
 
 __author__ = 'Athanasios Garyfalos'
+__editor__ = 'H. Kamran'
 
 # telnet program example
 BUFFER_RCV = 256
@@ -58,7 +59,9 @@ if __name__ == '__main__':
         sys.stdout.write('Unable to connect\n')
         sys.stdout.flush()
         sys.exit(1)
-
+    
+    print "Hello" + nickName
+    
     initialization(s, nickName)
     sys.stdout.write('Connected to remote host. Start sending messages\n')
     sys.stdout.flush()
