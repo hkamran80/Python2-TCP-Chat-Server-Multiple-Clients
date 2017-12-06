@@ -4,6 +4,7 @@ import select
 import socket
 import sys
 import checkArgumentInput
+import notify as notify
 
 __author__ = 'Athanasios Garyfalos'
 __editor__ = 'H. Kamran'
@@ -60,7 +61,7 @@ if __name__ == '__main__':
         sys.stdout.flush()
         sys.exit(1)
     
-    print "Hello" + nickName
+    print "Hello " + nickName
     
     initialization(s, nickName)
     sys.stdout.write('Connected to remote host. Start sending messages\n')
@@ -97,12 +98,12 @@ if __name__ == '__main__':
                     sys.stdout.write('Please enter a string not empty.\n')
                     sys.stdout.flush()
                     prompt()
-                elif 'exit' in msg or \
-                        'quit' in msg:
+                elif '/exit' in msg or '/quit' in msg:
                     sys.stdout.write('Client requested to shutdown, GoodBye!\n')
                     sys.stdout.flush()
                     msg = 'MSG ' + msg
                     s.send(msg)
+                    notify.notify("New Message", sound=False)
                     s.close()
                     sys.exit(0)
                 else:
