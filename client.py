@@ -95,15 +95,15 @@ if __name__ == '__main__':
                 msg = sys.stdin.readline()
                 msg = msg.rstrip('\r\n')
                 if len(msg) == 0:
-                    sys.stdout.write('Please enter a string not empty.\n')
+                    sys.stdout.write('Please enter a non-empty message.\n')
                     sys.stdout.flush()
                     prompt()
                 elif '/exit' in msg or '/quit' in msg:
-                    sys.stdout.write('Client requested to shutdown, GoodBye!\n')
+                    sys.stdout.write('Logging you out of the chat, ' + nickName + '...\n')
                     sys.stdout.flush()
                     msg = 'MSG ' + msg
                     s.send(msg)
-                    notify.notify("New Message", sound=False)
+                    notify.notify("Client Chat", "", "You are now logged out of the chat, " + nickName + "...", sound=False)
                     s.close()
                     sys.exit(0)
                 else:
